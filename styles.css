@@ -1,0 +1,221 @@
+/* ==========================================
+   1. VARIABLES Y RESET BASICO
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --bg-main: #0b0d10;       /* Negro azabache profundo */
+  --bg-card: #15181e;       /* Gris oscuro para contraste */
+  --bg-card-hover: #1e222b; 
+  --primary-neon: #ccff00;   /* Verde Lima/Neón enérgico */
+  --text-white: #ffffff;
+  --text-muted: #a0a6b1;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   2. HEADER Y NAVEGACION
+   ========================================== */
+header {
+  background-color: rgba(11, 13, 16, 0.95);
+  border-bottom: 2px solid var(--primary-neon);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-white);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.class-card {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.class-card a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: var(--primary-neon);
+}
+
+/* ==========================================
+   3. CONTENIDO PRINCIPAL (MAIN)
+   ========================================== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Estilo general para secciones */
+section {
+  background-color: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-4px);
+  border-color: rgba(204, 255, 0, 0.3);
+}
+
+/* Títulos de sección */
+main h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--primary-neon);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+main h2::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-neon);
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+main p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ==========================================
+   4. ESTILOS ESPECIFICOS PARA CLASES
+   ========================================== */
+
+/* Grid para las Clases Disponibles */
+.classes ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.classes li {
+  background-color: var(--bg-card-hover);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-neon);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.classes li:hover {
+  background-color: #272d38;
+  padding-left: 1.6rem;
+  color: var(--primary-neon);
+}
+
+/* Destacado en Membresías */
+.membership {
+  background: linear-gradient(135deg, var(--bg-card) 0%, #1a1e27 100%);
+  border-left: 6px solid var(--primary-neon);
+}
+
+/* ==========================================
+   5. FOOTER
+   ========================================== */
+footer {
+  background-color: #060708;
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: auto;
+}
+
+footer p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ==========================================
+   6. RESPONSIVE DESIGN (CELULARES)
+   ========================================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  section {
+    padding: 1.8rem;
+  }
+
+  .classes ul {
+    grid-template-columns: 1fr;
+  }
+}
