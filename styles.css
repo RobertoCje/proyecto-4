@@ -1,7 +1,7 @@
 /* ==========================================
    1. VARIABLES Y RESET BASICO
    ========================================== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400;700&display=swap');
+@import url('https://googleapis.com');
 
 :root {
   --bg-main: #0b0d10;       /* Negro azabache profundo */
@@ -72,21 +72,6 @@ nav a {
   transition: color 0.3s ease;
 }
 
-.class-card {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-.class-card a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-}
 nav a:hover {
   color: var(--primary-neon);
 }
@@ -149,30 +134,51 @@ main p {
    4. ESTILOS ESPECIFICOS PARA CLASES
    ========================================== */
 
-/* Grid para las Clases Disponibles */
-.classes ul {
-  list-style: none;
+/* Grid para organizar las Tarjetas */
+.classes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
   margin-top: 1.5rem;
 }
 
-.classes li {
+/* Estilo de cada tarjeta individual */
+.class-card {
   background-color: var(--bg-card-hover);
-  padding: 1.2rem;
-  border-radius: 8px;
-  border-left: 4px solid var(--primary-neon);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: background-color 0.3s ease, padding-left 0.3s ease;
+  padding: 1.8rem;
+  border-radius: 10px;
+  border-bottom: 4px solid var(--primary-neon);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.classes li:hover {
+/* Títulos de disciplinas dentro de las tarjetas */
+.class-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: var(--text-white);
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+/* Párrafos descriptivos dentro de las tarjetas */
+.class-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Efectos visuales de las tarjetas al pasar el ratón (Hover) */
+.class-card:hover {
+  transform: translateY(-6px);
   background-color: #272d38;
-  padding-left: 1.6rem;
+  box-shadow: 0 10px 20px rgba(204, 255, 0, 0.15);
+}
+
+.class-card:hover h3 {
   color: var(--primary-neon);
 }
 
@@ -215,7 +221,8 @@ footer p {
     padding: 1.8rem;
   }
 
-  .classes ul {
+  /* Las tarjetas se adaptan a una sola columna en pantallas móviles */
+  .classes {
     grid-template-columns: 1fr;
   }
 }
